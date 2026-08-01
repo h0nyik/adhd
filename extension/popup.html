@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Browser Connector</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Browser Connector</h1>
+
+    <section>
+      <p id="status">Zjišťuji stav…</p>
+      <button id="pauseBtn"></button>
+    </section>
+
+    <section>
+      <h2>Připojení k MCP serveru</h2>
+      <label>Port <input id="port" type="number" placeholder="8765" /></label>
+      <label>Pairing token <input id="token" type="text" placeholder="vlož token z výstupu serveru" /></label>
+      <button id="saveConn">Uložit</button>
+    </section>
+
+    <section>
+      <h2>Povolené domény</h2>
+      <p class="hint">Agent smí otevírat jen domény v tomto seznamu. Přidání vyžaduje potvrzení Chromu.</p>
+      <div class="row">
+        <input id="newDomain" type="text" placeholder="např. wikipedia.org" />
+        <button id="addDomain">Přidat</button>
+      </div>
+      <ul id="allowlist"></ul>
+    </section>
+
+    <section>
+      <h2>Aktivita</h2>
+      <ul id="activity"></ul>
+    </section>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

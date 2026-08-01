@@ -1,0 +1,65 @@
+body {
+  font-family: system-ui, sans-serif;
+  width: 320px;
+  padding: 12px;
+  font-size: 13px;
+}
+h1 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #666;
+  margin: 14px 0 4px;
+}
+section {
+  margin-bottom: 8px;
+}
+.hint {
+  color: #888;
+  font-size: 11px;
+  margin: 0 0 6px;
+}
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+}
+.row {
+  display: flex;
+  gap: 4px;
+}
+.row input {
+  flex: 1;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  max-height: 140px;
+  overflow-y: auto;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+button {
+  cursor: pointer;
+}
+#pauseBtn {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
