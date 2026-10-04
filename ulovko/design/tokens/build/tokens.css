@@ -1,0 +1,90 @@
+/* Vygenerováno z design/tokens/tokens.json. Needitovat ručně: node design/tokens/generate.mjs */
+:root {
+  --bg: #E9EEEA;
+  --app: #F5F7F5;
+  --surface: #FFFFFF;
+  --surface-2: #E8EEEA;
+  --fg: #0F1A15;
+  --muted: #55635C;
+  --line: #D5DDD8;
+  --brand: #12614F;
+  --brand-ink: #FFFFFF;
+  --brand-soft: #D7EBE3;
+  --gold: #8A5E0B;
+  --gold-strong: #D69E1A;
+  --gold-soft: #F6EACD;
+  --good: #16764A;
+  --good-soft: #DCF0E5;
+  --warn: #965500;
+  --warn-soft: #FAEBD4;
+  --bad: #B42318;
+  --bad-soft: #FADFDB;
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 12px;
+  --space-l: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --radius-s: 10px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --radius-sheet: 26px;
+  --text-caption: 12px;
+  --text-footnote: 13px;
+  --text-body: 15px;
+  --text-title: 20px;
+  --text-headline: 28px;
+  --text-price: 24px;
+  --text-price-hero: 40px;
+  --motion-fast: 180ms;
+  --motion-standard: 320ms;
+  --font-display: "Bricolage Grotesque", ui-rounded, system-ui, sans-serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #070B09;
+    --app: #0D1311;
+    --surface: #151D1A;
+    --surface-2: #1C2723;
+    --fg: #E7EEEA;
+    --muted: #97A59E;
+    --line: #28342F;
+    --brand: #45C29B;
+    --brand-ink: #04241B;
+    --brand-soft: #16372D;
+    --gold: #EBBB55;
+    --gold-strong: #E3A928;
+    --gold-soft: #372B10;
+    --good: #52C48D;
+    --good-soft: #123324;
+    --warn: #E6A44A;
+    --warn-soft: #382711;
+    --bad: #F2766D;
+    --bad-soft: #3D1714;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #070B09;
+  --app: #0D1311;
+  --surface: #151D1A;
+  --surface-2: #1C2723;
+  --fg: #E7EEEA;
+  --muted: #97A59E;
+  --line: #28342F;
+  --brand: #45C29B;
+  --brand-ink: #04241B;
+  --brand-soft: #16372D;
+  --gold: #EBBB55;
+  --gold-strong: #E3A928;
+  --gold-soft: #372B10;
+  --good: #52C48D;
+  --good-soft: #123324;
+  --warn: #E6A44A;
+  --warn-soft: #382711;
+  --bad: #F2766D;
+  --bad-soft: #3D1714;
+  color-scheme: dark;
+}

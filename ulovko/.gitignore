@@ -1,0 +1,8 @@
+.gradle/
+.kotlin/
+build/
+!design/tokens/build/
+local.properties
+*.iml
+.idea/
+xcuserdata/
