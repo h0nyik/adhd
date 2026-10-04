@@ -49,9 +49,17 @@ pokud je uplatnění nejisté.
 
 ### Měna a kurz
 
-- Účtuje-li tržiště v Kč, bereme jeho cenu.
-- Jinak denní kurz ČNB plus nastavitelná přirážka karty (výchozí odhad,
-  uživatel může nastavit svou banku). Takový řádek nese symbol ≈.
+- Účtuje-li tržiště v měně trhu, bereme jeho cenu.
+- Jinak denní referenční kurz ECB (jedna báze pro CZK, PLN, HUF i EUR) plus
+  nastavitelná přirážka karty. Takový řádek nese symbol ≈.
+- **Zjištění z napojení na AliExpress:** podle typů referenčního SDK nabízí Affiliate
+  API cílové měny bez CZK, PLN a HUF a mezi jazyky chybí čeština (polština je).
+  Ceny proto bereme v EUR s `ship_to_country` země doručení (API pak cenu počítá
+  podle daňových pravidel země) a převádíme samy, s označením ≈. Ověřit skutečným
+  voláním, jakmile budou přístupové údaje.
+- **Doprava v hledání chybí:** `aliexpress.affiliate.product.query` cenu dopravy
+  nevrací. Do doplnění z API pro výpočet dopravy je doprava „neznámá“ a cena má stav
+  „+ ?“, nikdy ne odhad vydávaný za fakt.
 
 ## Stav ceny a Cenová jistota
 

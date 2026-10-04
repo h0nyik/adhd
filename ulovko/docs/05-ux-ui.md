@@ -131,4 +131,5 @@ Pravidla:
 - Nekonečný feed na domovské obrazovce.
 - Notifikace bez hodnoty. Povolené: cena klesla, zásilka, žádost o recenzi
   po doručení, týdně maximum nastavitelné.
-- Tón: tykání, přátelsky a věcně (otevřená otázka, viz [10](10-roadmapa-a-rizika.md)).
+- Tón: rozhodne výzkum s uživateli (A/B test tykání a vykání na každém trhu). Texty
+  jsou proto od začátku v souborech překladů s variantami, ne natvrdo v kódu.

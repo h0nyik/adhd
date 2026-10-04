@@ -18,6 +18,12 @@ vždy zkontrolovat aktuální stav.
 - AliExpress Open Platform a Affiliate API —
   [Zuplo: průvodce API](https://zuplo.com/blog/2024/10/02/aliexpress-api-guide),
   [jentic.com](https://jentic.com/apis/aliexpress.com/aliexpress.md)
+- AliExpress Open Platform: podpis, brány `/sync` a `/rest`, typy affiliate API —
+  referenční SDK [ae_sdk (npm)](https://www.npmjs.com/package/ae_sdk),
+  [github.com/moh3a/ae_sdk](https://github.com/moh3a/ae_sdk)
+- Allegro v Maďarsku (allegro.hu) a čtyři trhy —
+  [forbes.cz](https://forbes.cz/polska-skupina-allegro-dal-expanduje-po-cesku-a-slovensku-vstoupila-na-madarsky-trh/),
+  [dig.watch](https://dig.watch/updates/allegro-expands-operations-to-hungary)
 - Aukro integrace pro prodejce — [base.com](https://base.com/cs-CZ/blog/pripojeni-integrace-aukro/)
 - Open Icecat — [iceclog.com: FAQ](https://iceclog.com/faq-for-merchants/),
   [manuál API](https://iceclog.com/manual-how-to-import-product-content-into-your-webshop-via-icecat/)
@@ -36,6 +42,10 @@ vždy zkontrolovat aktuální stav.
   [Trade Compliance Resource Hub](https://www.tradecomplianceresourcehub.com/2026/09/15/on-the-road-toward-fewer-parcels-and-more-accountability-how-the-eu-and-uk-are-reshaping-e-commerce-imports/)
 - Česky: [forbes.cz](https://forbes.cz/nove-clo-na-balicky-z-ciny-kdy-zaplatite-vice-a-o-kolik-zdrazi-bezne-nakupy/),
   [tipli.cz](https://www.tipli.cz/clanek/clo-a-dph-pri-nakupech-z-ciny)
+
+- Sazby DPH 2026 (CZ 21 %, PL 23 %, SK 23 %, HU 27 %) —
+  [vatupdate.com](https://www.vatupdate.com/vat-rates-eu/)
+- Referenční kurzy ECB — [ecb.europa.eu](https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml)
 
 ## Nákup přes agenty
 - Google UCP — [Merchant Center Help](https://support.google.com/merchants/answer/16837055?hl=en),

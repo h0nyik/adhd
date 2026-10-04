@@ -56,7 +56,10 @@ prohlížeče, widget, globální zkratka na počítači. Viz [05-ux-ui.md](05-u
 
 ## Rozsah MVP (fáze 1)
 
-**Trh:** Česko, CZK, čeština.
+**Trhy:** Česko a Polsko od začátku, hned po nich Slovensko a Maďarsko. Všechny čtyři
+jsou trhy Allegra (allegro.cz, .pl, .sk, .hu), takže jedno napojení pokryje celý region.
+Architektura je vícetržní od prvního řádku: měna, jazyk a sazba DPH se řídí trhem
+(CZK/cs, PLN/pl, EUR/sk, HUF/hu).
 **Zdroje:** AliExpress (Affiliate API) a Allegro (REST API, nutná verifikace
 aplikace). Aukro ve fázi 2 po dohodě o datech.
 **Platformy:** iOS, Android, rozšíření prohlížeče (Chrome, Edge, Opera,

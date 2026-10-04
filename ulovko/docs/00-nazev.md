@@ -1,5 +1,8 @@
 # Název a značka
 
+> **Stav:** název je zatím otevřený. „Ulovko“ se používá jen jako pracovní název
+> složky a balíčků v kódu; přejmenování je mechanické.
+
 ## Proč ne „Alexpress“
 
 - **Ochranná známka.** „AliExpress“ je registrovaná značka skupiny Alibaba. Název,

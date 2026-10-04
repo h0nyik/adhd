@@ -105,23 +105,46 @@ a kontrolu číselných invariantů. Každá změna promptu nebo modelu se změ�
 - Rozšíření: jen volitelná oprávnění pro podporovaná tržiště a `activeTab`.
 - Analytika šetrná k soukromí, šifrování, pravidelné mazání.
 
-## Návrh struktury repozitáře
+## Struktura repozitáře (stav k 4. 10. 2026)
 
 ```
 ulovko/
-  apps/
-    apple/        SwiftUI: iOS, iPadOS, macOS, hostitel Safari rozšíření
-    android/      Jetpack Compose
-    windows/      WinUI 3 (fáze 2)
-    web/          SSR web + PWA
-    extension/    WXT
-  shared/core/    Kotlin Multiplatform: modely, API klient, cenový engine
-  services/       api, fetchers, cards, search
-  design/tokens/  barvy, typografie, pohyb a haptika jako jeden zdroj pravdy
-                  (generuje Swift, Kotlin, C# a CSS)
-  docs/
-  prototype/
+  shared/core/     Kotlin Multiplatform (JVM, iOS, macOS): peníze, kurzy ECB, trhy,
+                   pravidla DPH a cel jako data, cenový engine, Nejlepší volba,
+                   skóre důvěry, pásma prodaných kusů. 27 testů.
+  shared/design/   Vygenerované design tokeny pro Kotlin + test kontrastu WCAG.
+  services/api/    Ktor: GET /v1/search, /v1/rules, /health. Klient AliExpress
+                   Affiliate API (podpis ověřený proti referenčnímu SDK). 19 testů.
+  design/tokens/   tokens.json → generate.mjs → Kotlin, Swift, CSS
+  apps/            apple, android, windows, web, extension (README s postupem)
+  docs/  prototype/
 ```
+
+Spuštění a testy:
+
+```
+cd ulovko
+./gradlew check                                   # všechny testy
+node design/tokens/generate.mjs --check           # tokeny jsou aktuální
+./gradlew :services:api:run                       # http://localhost:8080
+curl "localhost:8080/v1/search?q=sluchátka&market=CZ"
+```
+
+Bez proměnných `AE_APP_KEY` a `AE_APP_SECRET` běží API ve vývojovém režimu se
+smyšlenými produkty a kurzy; odpověď to přizná (`source: aliexpress-fixture`,
+varování `rates.sample_not_real`). Se skutečnými údaji: `AE_APP_KEY`,
+`AE_APP_SECRET`, `AE_TRACKING_ID`, kurzy živě z ECB (`ULOVKO_RATES=ecb`) nebo ze
+souboru (`ULOVKO_RATES=/cesta/eurofxref-daily.xml`), vlastní pravidla
+`ULOVKO_RULES=/cesta/rules.json`.
+
+### Odpověď /v1/search
+
+Každá nabídka nese `price` = rozpad z cenového enginu: celková částka v měně trhu,
+`confidence` (`VERIFIED`, `ESTIMATE`, `INCOMPLETE`) a řádky `ITEMS`, `SHIPPING`,
+`VAT`, `DUTY`, `HANDLING_FEE` se stavem (`EXACT`, `ESTIMATED`, `INCLUDED`,
+`NOT_APPLICABLE`, `UNKNOWN`) a kódem důvodu (`duty.flat_per_tariff_line`,
+`fee.amount_not_set` …). Klient kód přeloží do jazyka trhu. Pole `assumptions`
+říká, co jsme museli předpokládat (např. `shipping.not_in_affiliate_search`).
 
 Haptika jako design token (viz [05-ux-ui.md](05-ux-ui.md)) znamená, že
 `ulovek` je definovaný jednou a každá platforma ho přeloží po svém.

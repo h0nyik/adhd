@@ -1,4 +1,4 @@
-# Ulovko (pracovní název)
+# Ulovko (pracovní název, název je zatím otevřený)
 
 **Všechna tržiště v jedné kapse. Jedna cena se vším, až do schránky.**
 
@@ -8,9 +8,29 @@ podstatné a vedle toho nabídky z Allegra a AliExpressu (později Aukra) s celk
 cenou včetně dopravy, DPH, cla a poplatků, s hodnocením prodejce a doručením na
 konkrétní den.
 
-> Stav: koncept a klikací prototyp. Produkční kód zatím ne.
+> Stav: koncept, klikací prototyp a technický základ (sdílené jádro s cenovým
+> enginem, design tokeny, API služba napojená na AliExpress Affiliate API).
 > Tahle složka je nezávislá na zbytku repozitáře (`extension/`, `server/`
 > patří jinému projektu).
+
+## Technický základ
+
+| Část | Co umí | Testy |
+|---|---|---|
+| [`shared/core`](shared/core) | Kotlin Multiplatform pro server, Android i iOS: peníze bez zaokrouhlovacích chyb, kurzy ECB, trhy CZ/PL/SK/HU, pravidla DPH a cel jako data, cenový engine, Nejlepší volba, skóre důvěry | 27 |
+| [`shared/design`](shared/design) + [`design/tokens`](design/tokens) | Jeden zdroj barev, typografie, rozestupů a haptiky → Kotlin, Swift, CSS; test kontrastu WCAG ve světlém i tmavém režimu | 2 |
+| [`services/api`](services/api) | Ktor API `GET /v1/search`, `/v1/rules`, `/health`; klient AliExpress Affiliate API s podpisem ověřeným proti referenčnímu SDK | 19 |
+| [`apps/`](apps/README.md) | Postup pro SwiftUI, Compose, WinUI, web a rozšíření; vygenerované Swift tokeny | — |
+
+```
+cd ulovko
+./gradlew check                           # všechny testy (JDK 21)
+./gradlew :services:api:run               # http://localhost:8080
+curl "localhost:8080/v1/search?q=sluchátka&market=CZ"
+```
+
+Bez přístupových údajů k AliExpressu běží API se smyšlenými produkty a kurzy a
+v odpovědi to přizná. Podrobnosti v [09-architektura.md](docs/09-architektura.md).
 
 ## Dokumentace
 
@@ -35,6 +55,11 @@ konkrétní den.
 telefonu). Ukazuje našeptávač, kartu věci, seřaditelný seznam nabídek s celkovou
 cenou a rozpadem, swipe gesta s haptikou, recenzi za 30 sekund a úlovky.
 Produkt, prodejci i ceny jsou **fiktivní ukázková data**.
+
+## Rozhodnuto
+
+Název zatím otevřený · tón rozhodne výzkum s uživateli · trhy Česko a Polsko,
+pak Slovensko a Maďarsko · nativní tým (SwiftUI, Kotlin + Compose).
 
 ## Klíčová rozhodnutí v kostce
 
